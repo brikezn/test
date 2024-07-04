@@ -21,7 +21,7 @@ func isValid(variables []string) bool {
 		return false
 	}
 
-	if getDigitFromRoman(firstItem) == -1 || getDigitFromRoman(secondItem) == -1 {
+	if !(isDigit(firstItem) && isDigit(secondItem)) && isDigit(firstItem) != isDigit(secondItem) {
 		println("Not valid arguments!")
 		return false
 	}
