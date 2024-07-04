@@ -9,21 +9,18 @@ import (
 
 func isValid(variables []string) bool {
 	if len(variables) != 3 {
-		println("Not 3 args!")
-		return false
+		panic("Not 3 args!")
 	}
 
 	firstItem := variables[0]
 	secondItem := variables[2]
 
 	if !(isDigit(firstItem) == isDigit(secondItem)) {
-		println("You use incorect types")
-		return false
+		panic("You use incorect types")
 	}
 
 	if !(isDigit(firstItem) && isDigit(secondItem)) && isDigit(firstItem) != isDigit(secondItem) {
-		println("Not valid arguments!")
-		return false
+		panic("Not valid arguments!")
 	}
 
 	if !isDigit(firstItem) {
@@ -31,7 +28,7 @@ func isValid(variables []string) bool {
 		romanSecondItem := getDigitFromRoman(secondItem)
 
 		if romanFirstItem == -1 || romanSecondItem == -1 {
-			println("Invalid arguments!")
+			panic("Invalid arguments!")
 		}
 	}
 
@@ -106,8 +103,7 @@ func toRoman(number int) string {
 
 func run(variables []string) {
 	if !isValid(variables) {
-		println("Invalid arguments!")
-		return
+		panic("Invalid arguments!")
 	}
 
 	isRoman := !isDigit(variables[0])
@@ -134,14 +130,14 @@ func run(variables []string) {
 	case "/":
 		result = variableOne / variableTwo
 	default:
-		println("Not valid operation!")
+		panic("Not valid operation!")
 	}
 
 	if isRoman {
 		if result > 0 {
 			println(toRoman(result))
 		} else {
-			println("Roman number less than 1!")
+			panic("Roman number less than 1!")
 		}
 	} else {
 		println(result)
