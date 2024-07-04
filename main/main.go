@@ -16,7 +16,7 @@ func isValid(variables []string) bool {
 	secondItem := variables[2]
 
 	if !(isDigit(firstItem) == isDigit(secondItem)) {
-		panic("You use incorect types")
+		panic("You use incorrect types")
 	}
 
 	if !(isDigit(firstItem) && isDigit(secondItem)) && isDigit(firstItem) != isDigit(secondItem) {
