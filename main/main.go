@@ -26,6 +26,15 @@ func isValid(variables []string) bool {
 		return false
 	}
 
+	if !isDigit(firstItem) {
+		romanFirstItem := getDigitFromRoman(firstItem)
+		romanSecondItem := getDigitFromRoman(secondItem)
+
+		if romanFirstItem == -1 || romanSecondItem == -1 {
+			println("Invalid arguments!")
+		}
+	}
+
 	return true
 }
 
@@ -69,7 +78,7 @@ func toRoman(number int) string {
 		1:   "I",
 		4:   "IV",
 		5:   "V",
-		9:   "IV",
+		9:   "IX",
 		10:  "X",
 		40:  "XL",
 		50:  "L",
@@ -85,6 +94,7 @@ func toRoman(number int) string {
 		if n >= arr[i] {
 			n -= arr[i]
 			result += table[arr[i]]
+
 			if n > arr[i] {
 				i--
 			}
