@@ -103,7 +103,7 @@ func toRoman(number int) string {
 			n -= arr[i]
 			result += table[arr[i]]
 
-			if n > arr[i] {
+			if n >= arr[i] {
 				i--
 			}
 		}
