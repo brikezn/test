@@ -30,6 +30,17 @@ func isValid(variables []string) bool {
 		if romanFirstItem == -1 || romanSecondItem == -1 {
 			panic("Invalid arguments!")
 		}
+	} else {
+		arabicFirstItem, errFirst := strconv.Atoi(firstItem)
+		arabicSecondItem, errSecond := strconv.Atoi(secondItem)
+
+		if errFirst != nil || errSecond != nil {
+			panic("Invalid argument!")
+		}
+
+		if arabicFirstItem < 1 || arabicFirstItem > 10 || arabicSecondItem < 1 || arabicSecondItem > 10 {
+			panic("Invalid number range!")
+		}
 	}
 
 	return true
